@@ -6,8 +6,7 @@ $(document).ready(function() {
 
 
 window.setTimeout(() => getData(),500);
-window.setTimeout(() => recalculate(),1000);
-window.setTimeout(() => draw(),1500);
+window.setTimeout(() => drawFWAM(),1500);
 window.setTimeout(() => additional(),2000);
 
 });
