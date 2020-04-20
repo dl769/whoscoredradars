@@ -1,6 +1,7 @@
 //on resolver page//
+let v
 $(document).ready(function() {
-let v = window.location.href
+v = window.location.href
 v = v.replace('http://dl769.github.io/whoscoredradars/?',"")
 v = atob(v);
 v = JSON.parse(v)
