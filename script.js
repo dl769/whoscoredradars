@@ -225,7 +225,8 @@ function convertVal(){
     playerStats[0] = $('.player-picture').attr('src');
     playerStats[18] = $('td.tournament a').html();
     playerStats[18] =  playerStats[18].replace(`<span class=\"ui-icon country flg-gb-eng\"></span>`,"")
-
+    playerStats.push($('h2').html());
+    playerStats[22] = playerStats[22].slice(0,-10)
 
     window.setTimeout(()=> goBackWithData(),750)
 }
