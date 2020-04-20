@@ -133,6 +133,7 @@ offensive()
 },500)
 
 function offensive(){
+    window.alert('obtaining data, please wait...')
     s = $('a[href="#player-tournament-stats-passing"]');
     s.click();
     
@@ -170,8 +171,8 @@ window.setTimeout(function(){
     window.setTimeout(function(){$("#subcategory").val('accuracy').change()},350);
     
 
-    window.setTimeout(() => detailed(),500);
-    },1000)
+    window.setTimeout(() => detailed(),800);
+    },1500)
 
 
 }
@@ -188,8 +189,8 @@ function detailed(){
         s = $('a[href="#player-tournament-stats-defensive"]');
         s.click();
     
-        window.setTimeout(() => defensive(),500);
-        },1000)
+        window.setTimeout(() => defensive(),750);
+        },1500)
     
     
     }
@@ -220,6 +221,10 @@ function convertVal(){
     playerStats.push(goalsp90);
     let shootingPr = playerStats[14]/playerStats[13];
     playerStats.push(shootingPr)
+
+    playerStats[0] = $('.player-picture').attr('src');
+    playerStats[18] = $('td.tournament a').html();
+    playerStats[18] =  playerStats[18].replace(`<span class=\"ui-icon country flg-gb-eng\"></span>`,"")
 
 
     window.setTimeout(()=> goBackWithData(),750)
