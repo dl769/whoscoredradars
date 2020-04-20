@@ -81,14 +81,51 @@
 // }
 
 
+// .loadingT {
+//     margin-left: -1em;
+//     position: fixed;
+//     border: 1px solid #000;
+//     height: 120%;
+//     width: 101%;
+//     background: #FFF;
+//     background-color: #541C41;
+  
+//   }
+//   .loadingText {
+//     text-align: center;
+//     color: white;
+//     padding-top: 20%;
+//     font-size: xx-large;
+//   }
+
+/* <div class="loadingT">
+<div class="loadingText">
+    
+    
+    <div class="loader">Loading...</div>
+    <a class="progressLOADING">LOADING...</a>
+
+</div>
+</div> */
 
 
 
+
+$('head').append(`<div class="loadingT">
+<div class="loadingText">
+    
+    
+    <div class="loader">Loading...</div>
+    <a class="progressLOADING">LOADING...</a>
+
+</div>
+</div> 
+`)
+$('loadingT').css("border","21px solid #000");
 
 let s = $('a[href="#player-tournament-stats-offensive"]');
 
 s.click();
-
 let playerStats = [];
 
 window.setTimeout(function(){
@@ -127,14 +164,37 @@ playerStats.push($('td.passSuccess').html());
 playerStats.push($('td.accurateThroughBallPerGame').html());
 
 window.setTimeout(function(){
-    s = $('a[href="#player-tournament-stats-defensive"]');
+    s = $('a[href="#player-tournament-stats-detailed"]');
     s.click();
+    $("#category").val('shots').change()
+    window.setTimeout(function(){$("#subcategory").val('accuracy').change()},350);
+    
 
-    window.setTimeout(() => defensive(),500);
+    window.setTimeout(() => detailed(),500);
     },1000)
 
 
 }
+
+
+
+function detailed(){
+
+
+    playerStats.push($('td.shotsTotal').html());
+    playerStats.push($('td.shotOnTarget').html());
+
+    window.setTimeout(function(){
+        s = $('a[href="#player-tournament-stats-defensive"]');
+        s.click();
+    
+        window.setTimeout(() => defensive(),500);
+        },1000)
+    
+    
+    }
+
+
 
 function defensive(){
 
@@ -158,10 +218,26 @@ function convertVal(){
     let goalsp90 = playerStats[3]/p90;
     playerStats.push(assistsp90);
     playerStats.push(goalsp90);
+    let shootingPr = playerStats[14]/playerStats[13];
+    playerStats.push(shootingPr)
 
 
+    window.setTimeout(()=> goBackWithData(),750)
 }
 
+function goBackWithData(){
+    playerStats = JSON.stringify(playerStats);
+    playerStats = btoa(playerStats);
+    window.location.href = "http://dl769.github.io/portfolipage/?"+playerStats; 
+}
+
+//on resolver page//
+let v = window.location.href
+v = v.replace('http://dl769.github.io/whoscoredradars/?',"")
+v = atob(v);
+v = JSON.parse(v)
+
+//todofinish
 
 $.getScript( "https://cdn.jsdelivr.net/npm/chart.js@2.8.0", function( data, textStatus, jqxhr ) {
     console.log( data ); // Data returned
@@ -170,8 +246,7 @@ $.getScript( "https://cdn.jsdelivr.net/npm/chart.js@2.8.0", function( data, text
     console.log( "Load was performed." );
   });
 
-  window.setTimeout(()=> draw(),1000);
-  $('body').append('<canvas id="myChart" width="800" height="600"></canvas>')
+
 function draw(){
     $.getScript( "https://cdn.jsdelivr.net/npm/chart.js@2.8.0", function( data, textStatus, jqxhr ) {
         var ctx = document.getElementById("myChart").getContext("2d");

@@ -6,5 +6,4 @@ response = session.get('http://whoscored.com', headers={'Referer': 'http://whosc
 print(session.cookies)
 
 
-
     
