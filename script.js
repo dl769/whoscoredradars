@@ -228,7 +228,7 @@ function convertVal(){
 function goBackWithData(){
     playerStats = JSON.stringify(playerStats);
     playerStats = btoa(playerStats);
-    window.location.href = "http://dl769.github.io/portfolipage/?"+playerStats; 
+    window.location.href = "http://dl769.github.io/whoscoredradars/?"+playerStats; 
 }
 
 //on resolver page//

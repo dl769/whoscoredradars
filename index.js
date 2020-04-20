@@ -1,16 +1,20 @@
 //on resolver page//
 let v
 $(document).ready(function() {
-v = window.location.href
-v = v.replace('http://dl769.github.io/whoscoredradars/?',"")
-v = atob(v);
-v = JSON.parse(v)
 
-let playerStats = [...v]
 
-window.setTimeout(() => draw(),400);
+window.setTimeout(() => getData(),500);
+window.setTimeout(() => draw(),1500);
 
 });
+function getData(){
+        v = window.location.href
+        v = v.replace('http://dl769.github.io/whoscoredradars/?',"")
+        v = atob(v);
+        v = JSON.parse(v)
+        
+        let playerStats = [...v]
+}
 
 function draw(){
     var ctx = document.getElementById("myChart").getContext("2d");
