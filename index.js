@@ -9,7 +9,7 @@ window.setTimeout(() => draw(),1500);
 });
 function getData(){
         v = window.location.href
-        v = v.replace('http://dl769.github.io/whoscoredradars/?',"")
+        v = v.replace('https://dl769.github.io/whoscoredradars/?','')
         v = atob(v);
         v = JSON.parse(v)
         
