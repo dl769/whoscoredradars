@@ -51,8 +51,9 @@ function drawFWAM(){
             ]
         },
         options: {
-            responsive: true,
+            responsive: false,
             maintainAspectRatio: false,
+            
         }
     });
 

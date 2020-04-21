@@ -122,21 +122,51 @@ $('head').append(`<div class="loadingT">
 </div> 
 `)
 $('loadingT').css("border","21px solid #000");
-
+$(".minsPlayed").click()
 let s = $('a[href="#player-tournament-stats-offensive"]');
 
 s.click();
 let playerStats = [];
 
 window.setTimeout(function(){
-offensive()
+
+    window.setTimeout(function(){
+        $(".minsPlayed").click()
+        window.setTimeout(()=> offensive(), 500)
+    },500)
+
+    window.setTimeout(function(){
+        s = $('a[href="#player-tournament-stats-passing"]');
+        s.click();
+        window.setTimeout(()=>  $(".minsPlayed").click(), 500)
+        window.setTimeout(() => passings(),1200);
+    },2500)
+
+    window.setTimeout(function(){
+        s = $('a[href="#player-tournament-stats-detailed"]');
+        s.click();
+        window.setTimeout(() => $(".minsPlayed").click(),500);
+        window.setTimeout(() => $("#category").val('shots').change(),1000); 
+        window.setTimeout(function(){$("#subcategory").val('accuracy').change()},1500);
+        window.setTimeout(() => detailed(),2000);
+    },5000)
+
+    window.setTimeout(function(){
+        s = $('a[href="#player-tournament-stats-defensive"]');
+        s.click();
+        window.setTimeout(()=>  $(".minsPlayed").click(), 1000)
+        window.setTimeout(() => defensive(),2000);
+    },10000)
+
+    window.setTimeout(function(){
+        window.setTimeout(() => convertVal(),200);
+    },13000)
+
+
 },500)
 
 function offensive(){
-    window.alert('obtaining data, please wait...')
-    s = $('a[href="#player-tournament-stats-passing"]');
-    s.click();
-    
+
     playerStats.push($('.player-picture').attr('src'));
     playerStats.push($('td.keyPassPerGame').html());
     playerStats.push($('td.minsPlayed').html());
@@ -147,33 +177,14 @@ function offensive(){
     playerStats.push($('td.dribbleWonPerGame').html());
     playerStats.push($('td.foulGivenPerGame').html());
     playerStats.push($('td.dispossessedPerGame').html());
-
-    window.setTimeout(function(){
-        s = $('a[href="#player-tournament-stats-passing"]');
-        s.click();
-
-        window.setTimeout(() => passings(),500);
-        },1000)
 }
 
 
 function passings(){
 
-
-playerStats.push($('td.totalPassesPerGame').html());
-playerStats.push($('td.passSuccess').html());
-playerStats.push($('td.accurateThroughBallPerGame').html());
-
-window.setTimeout(function(){
-    s = $('a[href="#player-tournament-stats-detailed"]');
-    s.click();
-    $("#category").val('shots').change()
-    window.setTimeout(function(){$("#subcategory").val('accuracy').change()},350);
-    
-
-    window.setTimeout(() => detailed(),800);
-    },1500)
-
+    playerStats.push($('td.totalPassesPerGame').html());
+    playerStats.push($('td.passSuccess').html());
+    playerStats.push($('td.accurateThroughBallPerGame').html());
 
 }
 
@@ -181,33 +192,20 @@ window.setTimeout(function(){
 
 function detailed(){
 
-
     playerStats.push($('td.shotsTotal').html());
     playerStats.push($('td.shotOnTarget').html());
-
-    window.setTimeout(function(){
-        s = $('a[href="#player-tournament-stats-defensive"]');
-        s.click();
     
-        window.setTimeout(() => defensive(),750);
-        },1500)
-    
-    
-    }
+}
 
 
 
 function defensive(){
 
-playerStats.push($('td.interceptionPerGame').html());
-playerStats.push($('td.tacklePerGame').html());
-playerStats.push($('td.wasDribbledPerGame').html());
-playerStats.push($('td.tournament a').html());
+    playerStats.push($('td.interceptionPerGame').html());
+    playerStats.push($('td.tacklePerGame').html());
+    playerStats.push($('td.wasDribbledPerGame').html());
+    playerStats.push($('td.tournament a').html());
 
-window.setTimeout(function() {
-  
- convertVal();
-},1000);
 }
 
 function convertVal(){
