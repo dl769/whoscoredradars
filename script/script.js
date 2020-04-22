@@ -17,7 +17,7 @@ function getDataLoc(){
     let s = v.search('\\?');
     if(s==-1){
         //error?notprovidedarrayinbase64
-        window.location="https://dl769.githubio/whoscoredradars/help.html"
+        window.location="https://dl769.github.io/whoscoredradars/help.html"
     }else{
         console.log(s)
         s=s+1;
