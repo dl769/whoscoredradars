@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+	
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Stats Radars</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="newindex.js"></script>
+    <script src="drawingFunc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" type="text/css" href="indexStyle.css">
+</head>
+
+<!--BODY-->
+<body>
+    <div id="nav"></div>
+    <div id="else">
+    <div id="mainM">
+    <h1>SOCCER PLAYERS RADAR</h1>
+    
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000; display: none"></canvas>
+
+
+    <img id="canvasImg" alt="player radar img">
+</div>
+    <div id="numbers">
+
+        <p id="introtext">Radars based on @mixedknuts works. Original code from @drivelinebases.<br> I added FB and CB templates, color choice and possession adjusted calculator.</p>
+        <div class="console">
+        <table>
+
+            <thead><tr><td>stat name</td><td>min</td><td>max</td><td>value</td></tr></thead>
+
+            <tbody>
+
+                <tr><td><input id=name0 type="text" class=slabel></td><td><input id=min0 type="text" class=snumber></td><td><input id=max0 type="text" class=snumber></td><td><input id=stat0 type="textarea"></td></tr>
+                <tr><td><input id=name1 type="text" class=slabel></td><td><input id=min1 type="text" class=snumber></td><td><input id=max1 type="text" class=snumber></td><td><input id=stat1 type="textarea"></td></tr>
+                <tr><td><input id=name2 type="text" class=slabel></td><td><input id=min2 type="text" class=snumber></td><td><input id=max2 type="text" class=snumber></td><td><input id=stat2 type="textarea"></td></tr>
+                <tr><td><input id=name3 type="text" class=slabel></td><td><input id=min3 type="text" class=snumber></td><td><input id=max3 type="text" class=snumber></td><td><input id=stat3 type="textarea"></td></tr>
+                <tr><td><input id=name4 type="text" class=slabel></td><td><input id=min4 type="text" class=snumber></td><td><input id=max4 type="text" class=snumber></td><td><input id=stat4 type="textarea"></td></tr>
+                <tr><td><input id=name5 type="text" class=slabel></td><td><input id=min5 type="text" class=snumber></td><td><input id=max5 type="text" class=snumber></td><td><input id=stat5 type="textarea"></td></tr>
+                <tr><td><input id=name6 type="text" class=slabel></td><td><input id=min6 type="text" class=snumber></td><td><input id=max6 type="text" class=snumber></td><td><input id=stat6 type="textarea"></td></tr>
+                <tr><td><input id=name7 type="text" class=slabel></td><td><input id=min7 type="text" class=snumber></td><td><input id=max7 type="text" class=snumber></td><td><input id=stat7 type="textarea"></td></tr>
+                <tr><td><input id=name8 type="text" class=slabel></td><td><input id=min8 type="text" class=snumber></td><td><input id=max8 type="text" class=snumber></td><td><input id=stat8 type="textarea"></td></tr>
+                <tr><td><input id=name9 type="text" class=slabel></td><td><input id=min9 type="text" class=snumber></td><td><input id=max9 type="text" class=snumber></td><td><input id=stat9 type="textarea"></td></tr>
+                <tr><td><input id=name10 type="text" class=slabel></td><td><input id=min10 type="text" class=snumber></td><td><input id=max10 type="text" class=snumber></td><td><input id=stat10 type="textarea"></td></tr>
+                
+            </tbody>
+
+        </table>
+    </div>
+        <br><br>
+       
+        <span onclick="fillFWAM()" class="button_template">FW/AM Template</span>
+        <span onclick="fillCMDM()" class="button_template">CM/DM Template</span>
+        <span onclick="fillFB()" class="button_template">FB Template</span>
+        <span onclick="fillCB()" class="button_template">CB Template</span>
+        <span onclick="drawPlot()" class="button">draw!</span>
+        <br><br>
+
+        <span class=ilabel>width: </span><input id=cwidth value=600 type="textarea">
+        <span class=ilabel>height: </span><input id=cheight value=600 type="textarea">
+            
+    </div>
+
+    
+    
+
+</div>
+
+
+
+</body>
+
+</html>

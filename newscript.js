@@ -86,29 +86,30 @@ window.setTimeout(function () {
 
 
 window.setTimeout(() => $("#category").val('shots').change(),27500); 
+window.setTimeout(() => $("#subcategory").val('situations').change(),28500); 
 window.setTimeout(function () { 
     playerStats.push($('td.shotOpenPlay').html()); 
     playerStats.push($('td.shotCounter').html()); 
     playerStats.push($('td.shotSetPiece').html()); 
-},28500);
+},29500);
 
 
-window.setTimeout(() => $("#subcategory").val('situations').change(),30000); 
+window.setTimeout(() => $("#subcategory").val('accuracy').change(),30500); 
 window.setTimeout(function () { 
     playerStats.push($('td.shotOffTarget').html()); 
     playerStats.push($('td.shotOnTarget').html()); 
     playerStats.push($('td.shotBlocked').html()); 
-},31000);
+},31500);
 
 
-window.setTimeout(() => $("#category").val('goals').change(),32000); 
-window.setTimeout(() => $("#subcategory").val('situations').change(),33000); 
+window.setTimeout(() => $("#category").val('goals').change(),32500); 
+window.setTimeout(() => $("#subcategory").val('situations').change(),33500); 
 window.setTimeout(function () { 
     playerStats.push($('td.goalOpenPlay').html()); 
     playerStats.push($('td.goalCounter').html()); 
 //NPG
-},34000);
-//37 items
+},34500);
+//38 items
 
 window.setTimeout(function(){
     playerStats = playerStats.map(el=>el.slice(0,-1));
@@ -116,8 +117,9 @@ window.setTimeout(function(){
 
     playerStats.push($('.tournament-link').html());     //38 - league
     playerStats.push($('.player-picture').attr('src')); //39 - player's pic
-    playerStats.push($('h2'));                          //40 - player's name
-
+    playerStats.push($('h2').html());                          //40 - player's name
+    playerStats.push($('.player-info-block:eq(4)').html())     //41 position
+    
     window.setTimeout(()=> goBackWithData(),750)
 },36000);
 
