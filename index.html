@@ -1,18 +1,54 @@
+
 <!DOCTYPE html>
-<html lang="en">
+	
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Stats Radars</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- <script src="script.js"></script> -->
-    <script src="index.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/drawingFunc.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://kit.fontawesome.com/6e5b9ddc9b.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-sds
+
+<!--BODY-->
 <body>
-    <div class="additional"></div>
-    <canvas id="myChart" width="600" height="550"></canvas>
+    <div id="nav"><br><a id="logotext"><i class="fas fa-futbol"></i>&nbsp;Football radars script resolver</a></div>
+    
+    <div id="else">
+
+    <div id="mainM">
+        <h1>Football players radars</h1>
+        <a id="leagueandteam"></a>
+        <br>
+        <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000; display: none"></canvas>
+
+
+        <img id="canvasImg" alt="player radar img">
+    </div>
+
+    <div id="numbers">
+
+        <div class="console">
+                <input id=name0 type="text" class=slabel><input id=min0 type="text" class=snumber><input id=max0 type="text" class=snumber><input id=stat0 type="textarea">  <input id=name1 type="text" class=slabel><input id=min1 type="text" class=snumber><input id=max1 type="text" class=snumber><input id=stat1 type="textarea"><input id=name2 type="text" class=slabel><input id=min2 type="text" class=snumber><input id=max2 type="text" class=snumber><input id=stat2 type="textarea"> <input id=name3 type="text" class=slabel><input id=min3 type="text" class=snumber><input id=max3 type="text" class=snumber><input id=stat3 type="textarea"> <input id=name4 type="text" class=slabel><input id=min4 type="text" class=snumber><input id=max4 type="text" class=snumber><input id=stat4 type="textarea"><input id=name5 type="text" class=slabel><input id=min5 type="text" class=snumber><input id=max5 type="text" class=snumber><input id=stat5 type="textarea"><input id=name6 type="text" class=slabel><input id=min6 type="text" class=snumber><input id=max6 type="text" class=snumber><input id=stat6 type="textarea"><input id=name7 type="text" class=slabel><input id=min7 type="text" class=snumber><input id=max7 type="text" class=snumber><input id=stat7 type="textarea"><input id=name8 type="text" class=slabel><input id=min8 type="text" class=snumber><input id=max8 type="text" class=snumber><input id=stat8 type="textarea"> <input id=name9 type="text" class=slabel><input id=min9 type="text" class=snumber><input id=max9 type="text" class=snumber><input id=stat9 type="textarea"><input id=name10 type="text" class=slabel><input id=min10 type="text" class=snumber><input id=max10 type="text" class=snumber><input id=stat10 type="textarea">  
+        </div>
+            
+        
+    </div>
+
+    
+    
+
+</div>
+<div class="footer">
+    <i class="fab fa-github"></i>
+</div>
+
+
+
 </body>
+
 </html>

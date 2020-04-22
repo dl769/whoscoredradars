@@ -1,8 +1,8 @@
 
 let playerStats = [];
-$(".minsPlayed").click()
+$(".minsPlayed").click();
 
-window.setTimeout(function () {
+window.setTimeout(function() {
     playerStats.push($(".sorted").html()); /*MINS PLAYED*/
     playerStats.push($('td.goal').html());
     playerStats.push($('td.assistTotal').html());
@@ -16,7 +16,7 @@ window.setTimeout(function(){
     s.click();
 },3000)
 window.setTimeout(()=> $(".minsPlayed").click(), 4000)
-window.setTimeout(function () {
+window.setTimeout(function() {
     playerStats.push($('td.tacklePerGame').html()); 
     playerStats.push($('td.interceptionPerGame').html()); 
     playerStats.push($('td.foulsPerGame').html()); 
@@ -30,7 +30,7 @@ window.setTimeout(function(){
     s.click();
 },6500)
 window.setTimeout(()=> $(".minsPlayed").click(), 7500)
-window.setTimeout(function () {
+window.setTimeout(function() {
     playerStats.push($('td.keyPassPerGame').html()); 
     playerStats.push($('td.dribbleWonPerGame').html()); 
     playerStats.push($('td.foulGivenPerGame').html()); 
@@ -44,7 +44,7 @@ window.setTimeout(function(){
     s.click();
 },10000)
 window.setTimeout(()=> $(".minsPlayed").click(), 11000)
-window.setTimeout(function () {
+window.setTimeout(function() {
     playerStats.push($('td.totalPassesPerGame').html()); /*p90 */
     playerStats.push($('td.passSuccess').html()); 
     playerStats.push($('td.accurateCrossesPerGame').html()); 
@@ -59,7 +59,7 @@ window.setTimeout(function(){
 },13500)
 window.setTimeout(()=>  $("#category").val('tackles').change(), 14500)
 window.setTimeout(()=> $(".minsPlayed").click(), 15500)
-window.setTimeout(function () {
+window.setTimeout(function() {
     playerStats.push($('td.tackleWonTotal').html()); 
     playerStats.push($('td.challengeLost').html()); 
     playerStats.push($('td.tackleTotalAttempted').html()); 
@@ -67,18 +67,18 @@ window.setTimeout(function () {
 
 
     window.setTimeout(() => $("#category").val('fouls').change(),18500); 
-window.setTimeout(function () {
+window.setTimeout(function() {
     playerStats.push($('td.foulGiven').html()); 
     playerStats.push($('td.foulCommitted').html()); 
 },20000);
 
 window.setTimeout(() => $("#category").val('clearances').change(),21000); 
-window.setTimeout(function () { 
+window.setTimeout(function() { 
     playerStats.push($('td.clearanceTotal').html()); 
 },23000);
 
 window.setTimeout(() => $("#category").val('blocks').change(),24000); 
-window.setTimeout(function () {
+window.setTimeout(function() {
     playerStats.push($('td.outfielderBlock').html()); 
     playerStats.push($('td.passCrossBlockedDefensive').html()); 
     playerStats.push($('td.outfielderBlockedPass').html()); 
@@ -87,7 +87,7 @@ window.setTimeout(function () {
 
 window.setTimeout(() => $("#category").val('shots').change(),27500); 
 window.setTimeout(() => $("#subcategory").val('situations').change(),28500); 
-window.setTimeout(function () { 
+window.setTimeout(function() { 
     playerStats.push($('td.shotOpenPlay').html()); 
     playerStats.push($('td.shotCounter').html()); 
     playerStats.push($('td.shotSetPiece').html()); 
@@ -95,7 +95,7 @@ window.setTimeout(function () {
 
 
 window.setTimeout(() => $("#subcategory").val('accuracy').change(),30500); 
-window.setTimeout(function () { 
+window.setTimeout(function() { 
     playerStats.push($('td.shotOffTarget').html()); 
     playerStats.push($('td.shotOnTarget').html()); 
     playerStats.push($('td.shotBlocked').html()); 
@@ -104,7 +104,7 @@ window.setTimeout(function () {
 
 window.setTimeout(() => $("#category").val('goals').change(),32500); 
 window.setTimeout(() => $("#subcategory").val('situations').change(),33500); 
-window.setTimeout(function () { 
+window.setTimeout(function() { 
     playerStats.push($('td.goalOpenPlay').html()); 
     playerStats.push($('td.goalCounter').html()); 
 //NPG

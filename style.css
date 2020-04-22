@@ -1,3 +1,78 @@
-#myChart{
-    background-image: url("index.png");
+.button_template{
+    background-color: aqua;
+    border: solid;
+    border-color: bisque;
+}
+.button{
+    background-color: bisque;
+    border: solid;
+    border-color: aqua;
+}
+.console{
+    visibility: hidden;
+    background-color: red;
+}
+#wrapimg{
+    float: left;
+}
+#wraptxt{
+    margin-top: 27px;
+    float: left;
+    padding-left: 1em;
+}
+h1{
+    overflow: auto;
+    margin: auto;
+    padding-left: 2em;
+    /*! after: black; */
+}
+#else{
+    max-width: 650px; /*width of template*/
+    margin: auto;
+}
+#nav{
+    background-color: #488a63;
+    width: 100%;
+    height: 46px;
+    margin-bottom: 1em;
+
+}
+h1:after { 
+  content: '______________________________'; 
+  display: block;
+  margin-top: 5em;
+    color: #488a63;
+}
+h2{
+    text-decoration: underline;
+}
+.footer{
+    width: 100%;
+    background-color: #488a63;
+    color: white;
+    height: 35px;
+    position: absolute bottom;
+}
+body{
+    margin: 0;
+}
+.contr{
+    margin-left: 95%;
+}
+.fab{
+    cursor: pointer;
+    font-size: xx-large;
+    margin-left: 10%;
+}
+#logotext{
+    margin-left: 15%;
+    color: white;
+    font-size: x-large;
+}
+#leagueandseason{
+    font-size: medium;
+    color: #414EEE;
+}
+.fa-futbol{
+    color: black;
 }

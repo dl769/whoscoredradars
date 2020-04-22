@@ -17,6 +17,7 @@ function getDataLoc(){
     let s = v.search('\\?');
     if(s==-1){
         //error?notprovidedarrayinbase64
+        window.location="https://dl769.githubio/whoscoredradars/help.html"
     }else{
         console.log(s)
         s=s+1;
@@ -65,10 +66,15 @@ function getDataLoc(){
             
             console.log(posistion)
             putValues()
+
+            const tempLg = playerInfo[38].lastIndexOf('>');
+            playerInfo[38].slice(tempLg)
             
-        
-            $('h1').html('<div id="wrapimg"><img src="'+playerInfo[39]+'"></div><div id="wraptxt">'+playerInfo[40]+' <br>on '+positionText+' template'+'</div>')
+            $('h1').html('<div id="wrapimg"><img src="'+playerInfo[39]+'"></div><div id="wraptxt">'+playerInfo[40]+' <br>'+positionText+' Template'+'<br><a id="leagueandseason">'+playerInfo[38]+' 19/20</a></div>')
     }
+}
+function info(){
+    window.alert('Template stats for radars and drawing from @drivelinebases, @cboutaud')
 }
 
 function putValues(){

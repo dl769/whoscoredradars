@@ -73,8 +73,8 @@ cbLabels[10] = new StatInfo("Long Balls",2.74,7.05);
 
 var curStats = statLabels;
 
-var canvasHeight = 600;
-var canvasWidth = 600;
+var canvasHeight = 650;
+var canvasWidth = 650;
 var labelFontSize = 10;
 var valueFontSize = 10;
 var numrings = 5;
@@ -82,8 +82,8 @@ var rotOffset = -Math.PI/2;//(statLabels.length)/2;
 
 function reassign() {
 
-    canvasHeight = parseInt(document.getElementById("cheight").value); 
-    canvasWidth = parseInt(document.getElementById("cwidth").value); 
+    //canvasHeight = parseInt(document.getElementById("cheight").value); 
+    //canvasWidth = parseInt(document.getElementById("cwidth").value); 
     curStats = new Array();
     var count = 0;
     for(var j = 0; j < 11; j++) {
@@ -217,6 +217,7 @@ var dataURL = c.toDataURL();
       // so it can be saved as an image
 document.getElementById('canvasImg').src = dataURL;
 
+$('.console').remove();
 }
 
 function fillFWAM() {
