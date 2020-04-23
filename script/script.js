@@ -11,6 +11,7 @@ window.setTimeout(() => drawPlot(),1000)
 
 });
 
+let posistion = '';
 function getDataLoc(){
     v = window.location.href
     console.log(v)
@@ -27,8 +28,8 @@ function getDataLoc(){
             v = JSON.parse(v)
             
             playerInfo = [...v]
-
-            let posistion = '';
+            playerInfo[41] = playerInfo[41]+[42];//position might be in one of those
+            
             if(playerInfo[41].search("Midfielder")>0 && playerInfo[41].search("Forward")<0){
                 posistion = 'midfield'
             }
@@ -78,14 +79,38 @@ function info(){
 }
 
 function putValues(){
-    $('#stat0').val(playerInfo[36] + playerInfo [37])
-    $('#stat1').val(playerInfo[3])
-    $('#stat2').val()
-    $('#stat3').val(playerInfo[4])
-    $('#stat4').val(playerInfo[2])
-    $('#stat5').val(playerInfo[11])
-    $('#stat6').val(playerInfo[20])
-    $('#stat7').val(playerInfo[5] + playerInfo [6])
-    $('#stat8').val(playerInfo[15])
-    $('#stat9').val(playerInfo[12])
+    let tempGames = playerInfo[0]/90;
+    let tempConversion = playerInfo[3] * tempGames;
+    tempConversion = playerInfo[1] / tempConversion *100;
+
+console.log(tempGames,tempConversion)
+    if(posistion == 'attack'){
+        $('#stat0').val(playerInfo[36] + playerInfo [37]) //NPG OK
+        $('#stat1').val(playerInfo[3])                    //SPG OK
+        $('#stat2').val(playerInfo[34]/playerInfo[3]*100) //SHOOTING% OK
+        $('#stat3').val(playerInfo[4])                    //PASSING% OK
+        $('#stat4').val(playerInfo[2] / tempGames)        //ASSISTS OK
+        $('#stat5').val(playerInfo[11])                   //KEYP OK
+        $('#stat6').val(playerInfo[20])                   //THROUGHBALLS OK
+        $('#stat7').val(playerInfo[5] + playerInfo [6])   //INT+TACKLES OK
+        $('#stat8').val(playerInfo[15])                   //DISPOSS OK
+        $('#stat9').val(playerInfo[12])                   //SUCCDRBL OK
+        $('#stat10').val(tempConversion)                  //GOALCNVRS OK
+    }
+    if(posistion == 'midfield'){
+        $('#stat0').val(playerInfo[36] + playerInfo [37]) //NPG OK
+        $('#stat1').val(playerInfo[3])                    //SPG OK
+        $('#stat2').val(playerInfo[34]/playerInfo[3]*100) //SHOOTING% OK
+        $('#stat3').val(playerInfo[4])                    //PASSING% OK
+        $('#stat4').val(playerInfo[2] / tempGames)        //ASSISTS OK
+        $('#stat5').val(playerInfo[11])                   //KEYP OK
+        $('#stat6').val(playerInfo[20])                   //THROUGHBALLS OK
+        $('#stat7').val(playerInfo[5] + playerInfo [6])   //INT+TACKLES OK
+        $('#stat8').val(playerInfo[15])                   //DISPOSS OK
+        $('#stat9').val(playerInfo[12])                   //SUCCDRBL OK
+        $('#stat10').val(tempConversion)                  //GOALCNVRS OK
+    }
+
+
 }
+

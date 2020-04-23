@@ -25,10 +25,10 @@ statLabels[2] = new StatInfo("Shooting%",27,55);
 statLabels[3] = new StatInfo("Passing%",65,85);
 statLabels[4] = new StatInfo("Assists",0.08,0.40);
 statLabels[5] = new StatInfo("Key Passes",1.12,3.0);
-statLabels[6] = new StatInfo("Throughballs",0.07,0.44);
-statLabels[7] = new StatInfo("Int+Tackles",0.9,3.5);
-statLabels[8] = new StatInfo("Dispossessed",5.0,1.5);
-statLabels[9] = new StatInfo("Successful Dribbles",0.5,2.5);
+statLabels[6] = new StatInfo("Throughballs",0.13,0.65);
+statLabels[7] = new StatInfo("Int+Tackles",1.3,4.5);
+statLabels[8] = new StatInfo("Dispossessed",3.0,1.0);
+statLabels[9] = new StatInfo("Successful Dribbles",0.7,2.5);
 statLabels[10] = new StatInfo("Goal Conversion%",4.5,22.5);
 
 var cmdmLabels = new Array();

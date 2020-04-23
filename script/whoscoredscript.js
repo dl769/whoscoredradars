@@ -119,6 +119,7 @@ window.setTimeout(function(){
     playerStats.push($('.player-picture').attr('src')); //39 - player's pic
     playerStats.push($('h2').html());                          //40 - player's name
     playerStats.push($('.player-info-block:eq(4)').html())     //41 position
+    playerStats.push($('.player-info-block:eq(3)').html())     //42 might be position as well if he has not got full name
     
     window.setTimeout(()=> goBackWithData(),750)
 },36000);
