@@ -28,8 +28,8 @@ function getDataLoc(){
             v = JSON.parse(v)
             
             playerInfo = [...v]
-            playerInfo[41] = playerInfo[41]+[42];//position might be in one of those
-            
+            playerInfo[41] = playerInfo[41]+playerInfo[42];//position might be in one of those
+            console.log(playerInfo)
             if(playerInfo[41].search("Midfielder")>0 && playerInfo[41].search("Forward")<0){
                 posistion = 'midfield'
             }
@@ -98,17 +98,46 @@ console.log(tempGames,tempConversion)
         $('#stat10').val(tempConversion)                  //GOALCNVRS OK
     }
     if(posistion == 'midfield'){
-        $('#stat0').val(playerInfo[36] + playerInfo [37]) //NPG OK
-        $('#stat1').val(playerInfo[3])                    //SPG OK
-        $('#stat2').val(playerInfo[34]/playerInfo[3]*100) //SHOOTING% OK
-        $('#stat3').val(playerInfo[4])                    //PASSING% OK
-        $('#stat4').val(playerInfo[2] / tempGames)        //ASSISTS OK
-        $('#stat5').val(playerInfo[11])                   //KEYP OK
-        $('#stat6').val(playerInfo[20])                   //THROUGHBALLS OK
-        $('#stat7').val(playerInfo[5] + playerInfo [6])   //INT+TACKLES OK
-        $('#stat8').val(playerInfo[15])                   //DISPOSS OK
-        $('#stat9').val(playerInfo[12])                   //SUCCDRBL OK
-        $('#stat10').val(tempConversion)                  //GOALCNVRS OK
+        let goalsandassists = playerInfo[1]+playerInfo[2]
+        $('#stat0').val(playerInfo[4])                    //PASSING% OK
+        $('#stat1').val(playerInfo[11])                   //KEYP OK
+        $('#stat2').val(playerInfo[20])                   //THROUGHBALLS OK
+        $('#stat3').val(0)      //???? goalcontr
+        $('#stat4').val(playerInfo[12])                   //SUCCDRBL OK
+        $('#stat5').val(playerInfo[15])                   //DISPOSS OK
+        $('#stat6').val(playerInfo[25])                   //FOULS OK
+        $('#stat7').val(playerInfo[10])                   //DRBLPAST OK
+        $('#stat8').val(playerInfo[6])                    //TACKL OK_TOBEADJ
+        $('#stat9').val(playerInfo[7])                    //INT OK_TOBEADJ
+        $('#stat10').val(playerInfo[4])                   //LONGBALLS OK
+    }
+    if(posistion == 'centreback'){
+        let blocks = playerInfo[27] + playerInfo[28] + playerInfo[29];
+        $('#stat0').val(playerInfo[4])                    //PASSING% OK
+        $('#stat1').val(playerInfo[10])                   //DRBLPAST OK_TOBEADJ
+        $('#stat2').val(playerInfo[5])                    //TACKL OK_TOBEADJ
+        $('#stat3').val(playerInfo[6])                    //INT OK_TOBEADJ
+        $('#stat4').val(blocks)                           //BLOCKS OK
+        $('#stat5').val(playerInfo[26])                   //CLEARANCES OK
+        $('#stat6').val(playerInfo[8])                    //FOULS OK
+        $('#stat7').val(0)                   //AERIALW% ??
+        $('#stat8').val(playerInfo[5])                    //AERIALW OK
+        $('#stat9').val(0)                    //LONGBALL% ??
+        $('#stat10').val(playerInfo[4])                   //LONGBALLS OK
+    }
+    if(posistion == 'fullback'){
+        let blocks = playerInfo[27] + playerInfo[28] + playerInfo[29];
+        $('#stat0').val(playerInfo[5])                    //TACKL OK_TOBEADJ
+        $('#stat1').val(playerInfo[6])                    //INT OK_TOBEADJ
+        $('#stat2').val(playerInfo[4])                    //PASSING% OK
+        $('#stat3').val(playerInfo[11])                   //KEYP OK
+        $('#stat4').val(playerInfo[18])                   //compcrosses OK
+        $('#stat5').val(0)          //CROSS% ???
+        $('#stat6').val(playerInfo[12])                   //SUCCDRBL OK
+        $('#stat7').val(playerInfo[15])                   //DISPOSS OK
+        $('#stat8').val(playerInfo[5])                    //AERIALW OK
+        $('#stat9').val(playerInfo[10])                   //DRBLPAST OK
+        $('#stat10').val(playerInfo[8])                    //FOULS OK
     }
 
 
