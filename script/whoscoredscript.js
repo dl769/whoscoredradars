@@ -106,23 +106,40 @@ window.setTimeout(() => $("#category").val('goals').change(),32500);
 window.setTimeout(() => $("#subcategory").val('situations').change(),33500); 
 window.setTimeout(function() { 
     playerStats.push($('td.goalOpenPlay').html()); 
-    playerStats.push($('td.goalCounter').html()); 
-//NPG
+    playerStats.push($('td.goalTotal').html()); //NPG
+    
 },34500);
-//38 items
+
+window.setTimeout(() => $("#category").val('aerial').change(),35500); 
+window.setTimeout(function() { 
+    playerStats.push($('td.duelAerialTotal').html()); 
+},36500);
+
+window.setTimeout(() => $("#category").val('passes').change(),37000); 
+window.setTimeout(function() { 
+    playerStats.push($('td.passLongBallInaccurate').html()); 
+},38000);
+
+window.setTimeout(() => $("#subcategory").val('type').change(),38500); 
+window.setTimeout(function() { 
+    playerStats.push($('td.passCrossInaccurate').html()); 
+},39500);
+//41
+
 
 window.setTimeout(function(){
     playerStats = playerStats.map(el=>el.slice(0,-1));
     playerStats = playerStats.map(el=>el=parseFloat(el));
 
-    playerStats.push($('.tournament-link').html());     //38 - league
-    playerStats.push($('.player-picture').attr('src')); //39 - player's pic
-    playerStats.push($('h2').html());                          //40 - player's name
-    playerStats.push($('.player-info-block:eq(4)').html())     //41 position
-    playerStats.push($('.player-info-block:eq(3)').html())     //42 might be position as well if he has not got full name
-    
+    playerStats.push($('.tournament-link').html());     //42 - league
+    playerStats.push($('.player-picture').attr('src')); //43 - player's pic
+    playerStats.push($('h2').html());                          //44- player's name
+    playerStats.push($('.player-info-block:eq(4)').html())     //45 position
+    playerStats.push($('.player-info-block:eq(3)').html())     //46 might be position as well if he has not got full name
+    playerStats.push($('.team-link').html())            //47 TEAM;
+
     window.setTimeout(()=> goBackWithData(),750)
-},36000);
+},40500);
 
 function goBackWithData(){
     playerStats = JSON.stringify(playerStats);

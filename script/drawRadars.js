@@ -45,17 +45,17 @@ cmdmLabels[9] = new StatInfo("PAdj Int",1.31,3.55);
 cmdmLabels[10] = new StatInfo("Long Balls",2,8);
 
 var fbLabels = new Array();
-fbLabels[0] = new StatInfo("PAdj Tackles",1.73,4.11);
-fbLabels[1] = new StatInfo("PAdj Int",1.5,3.7);
-fbLabels[2] = new StatInfo("Passing%",69.84,86.8);
+fbLabels[0] = new StatInfo("PAdj Tackles",0.9,3.3);
+fbLabels[1] = new StatInfo("PAdj Int",.5,2.2);
+fbLabels[2] = new StatInfo("Passing%",69,86);
 fbLabels[3] = new StatInfo("Key Passes",0.47,1.46);
-fbLabels[4] = new StatInfo("Comp. Crosses",0.32,1.21);
-fbLabels[5] = new StatInfo("Crossing %",14.84,33);
-fbLabels[6] = new StatInfo("Successful Dribbles",0.4,1.62);
-fbLabels[7] = new StatInfo("Dispossessed",1.17,0.23);
-fbLabels[8] = new StatInfo("Aerial Wins",0.72,2.38);
+fbLabels[4] = new StatInfo("Comp. Crosses",0.2,1.2);
+fbLabels[5] = new StatInfo("Crossing %",13,33);
+fbLabels[6] = new StatInfo("Successful Dribbles",0.2,1.8);
+fbLabels[7] = new StatInfo("Dispossessed",3.2,0.4);
+fbLabels[8] = new StatInfo("Aerial Wins",0.6,2.2);
 fbLabels[9] = new StatInfo("Dribbled Past",1.23,0.3);
-fbLabels[10] = new StatInfo("Fouls",1.76,0.54);
+fbLabels[10] = new StatInfo("Fouls",1.8,0.5);
 
 var cbLabels = new Array();
 cbLabels[0] = new StatInfo("Passing%",72.72,90);

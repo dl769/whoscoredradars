@@ -32,17 +32,17 @@ statLabels[9] = new StatInfo("Successful Dribbles",0.5,2.5);
 statLabels[10] = new StatInfo("Goal Conversion%",4.5,22.5);
 
 var cmdmLabels = new Array();
-cmdmLabels[0] = new StatInfo("Passing%",74,90);
+cmdmLabels[0] = new StatInfo("Passing%",69,90);
 cmdmLabels[1] = new StatInfo("Key Passes",.70,2.5);
-cmdmLabels[2] = new StatInfo("Throughballs",.10,0.50);
-cmdmLabels[3] = new StatInfo("Scoring Contribution",.1,.5);
-cmdmLabels[4] = new StatInfo("Successful Dribbles",0.5,2.1);
-cmdmLabels[5] = new StatInfo("Dispossessed",2.47,.5);
-cmdmLabels[6] = new StatInfo("Fouls",2.36,.6);
+cmdmLabels[2] = new StatInfo("Throughballs",.03,0.5);
+cmdmLabels[3] = new StatInfo("Scoring Contribution",.06,.5);
+cmdmLabels[4] = new StatInfo("Successful Dribbles",0.4,2);
+cmdmLabels[5] = new StatInfo("Dispossessed",3.2,.6);
+cmdmLabels[6] = new StatInfo("Fouls",2.4,.65);
 cmdmLabels[7] = new StatInfo("Dribbled Past",1.55,.35);
-cmdmLabels[8] = new StatInfo("PAdj Tackles",1.65,4.25);
-cmdmLabels[9] = new StatInfo("PAdj Int",1.31,3.55);
-cmdmLabels[10] = new StatInfo("Long Balls",2,8);
+cmdmLabels[8] = new StatInfo("PAdj Tackles",1,3.7);
+cmdmLabels[9] = new StatInfo("PAdj Int",.5,2);
+cmdmLabels[10] = new StatInfo("Long Balls",1.3,8);
 
 var fbLabels = new Array();
 fbLabels[0] = new StatInfo("PAdj Tackles",1.73,4.11);
