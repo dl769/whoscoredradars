@@ -45,30 +45,30 @@ cmdmLabels[9] = new StatInfo("PAdj Int",.5,2);
 cmdmLabels[10] = new StatInfo("Long Balls",1.3,8);
 
 var fbLabels = new Array();
-fbLabels[0] = new StatInfo("PAdj Tackles",1.73,4.11);
-fbLabels[1] = new StatInfo("PAdj Int",1.5,3.7);
-fbLabels[2] = new StatInfo("Passing%",69.84,86.8);
+fbLabels[0] = new StatInfo("PAdj Tackles",0.9,3.3);
+fbLabels[1] = new StatInfo("PAdj Int",.5,2.2);
+fbLabels[2] = new StatInfo("Passing%",69,86);
 fbLabels[3] = new StatInfo("Key Passes",0.47,1.46);
-fbLabels[4] = new StatInfo("Comp. Crosses",0.32,1.21);
-fbLabels[5] = new StatInfo("Crossing %",14.84,33);
-fbLabels[6] = new StatInfo("Successful Dribbles",0.4,1.62);
-fbLabels[7] = new StatInfo("Dispossessed",1.17,0.23);
-fbLabels[8] = new StatInfo("Aerial Wins",0.72,2.38);
+fbLabels[4] = new StatInfo("Comp. Crosses",0.2,1.2);
+fbLabels[5] = new StatInfo("Crossing %",13,33);
+fbLabels[6] = new StatInfo("Successful Dribbles",0.2,1.8);
+fbLabels[7] = new StatInfo("Dispossessed",3.2,0.4);
+fbLabels[8] = new StatInfo("Aerial Wins",0.6,2.2);
 fbLabels[9] = new StatInfo("Dribbled Past",1.23,0.3);
-fbLabels[10] = new StatInfo("Fouls",1.76,0.54);
+fbLabels[10] = new StatInfo("Fouls",1.8,0.5);
 
 var cbLabels = new Array();
 cbLabels[0] = new StatInfo("Passing%",72.72,90);
 cbLabels[1] = new StatInfo("PAdj Dribbled Past",0.96,0.16);
-cbLabels[2] = new StatInfo("PAdj Tackles",1.4,3.43);
-cbLabels[3] = new StatInfo("PAdj Interceptions",1.6,4);
+cbLabels[2] = new StatInfo("PAdj Tackles",1,3.4);
+cbLabels[3] = new StatInfo("PAdj Interceptions",1.3,4.2);
 cbLabels[4] = new StatInfo("Blocks",0.47,1.17);
-cbLabels[5] = new StatInfo("PAdj Clearances",4.62,10.4);
-cbLabels[6] = new StatInfo("Fouls",1.7,0.5);
-cbLabels[7] = new StatInfo("Aerial Wins %",53.6,76);
-cbLabels[8] = new StatInfo("Aeriel Wins",1.3,3.93);
-cbLabels[9] = new StatInfo("Long Ball %",48.68,77.2);
-cbLabels[10] = new StatInfo("Long Balls",2.74,7.05);
+cbLabels[5] = new StatInfo("PAdj Clearances",4,10.4);
+cbLabels[6] = new StatInfo("Fouls",1.8,0.5);
+cbLabels[7] = new StatInfo("Aerial Wins %",51,76);
+cbLabels[8] = new StatInfo("Aeriel Wins",1.3,4.2);
+cbLabels[9] = new StatInfo("Long Ball %",40,77);
+cbLabels[10] = new StatInfo("Long Balls",2,6.3);
 
 
 var curStats = statLabels;

@@ -178,7 +178,7 @@ console.log(tempGames,tempConversion)
         $('#stat6').val(playerInfo[8])                    //FOULS OK
         $('#stat7').val(playerInfo[5]/playerInfo[38]*100) //AERIALW% ??
         $('#stat8').val(playerInfo[5])                    //AERIALW OK
-        $('#stat9').val(lb)                               //LONGBALL% ??
+        $('#stat9').val(lb*100)                           //LONGBALL%
         $('#stat10').val(playerInfo[4])                   //LONGBALLS OK
     }
     if(posistion == 'fullback'){
