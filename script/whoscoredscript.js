@@ -1,3 +1,19 @@
+$('#user-bar-wrapper').html("<center><h1>Loading resources, do not leave this page</h1></center>");
+$('#tournament-nav-popup').css("visibility","hidden");
+$('#layout-content-wrapper').css("visibility","hidden");
+$('#footer-wrapper').css("visibility","hidden");
+
+$('#header-wrapper').html('<div id="progressbar"></div>');
+
+$('#progressbar').css('width','1px');
+$('#progressbar').css('height','3em');
+$('#progressbar').css('background','red');
+$('#progressbar').css('transition','width 41s');
+
+window.setTimeout(function ws(){
+$('#progressbar').css('width','100%');
+},200);
+
 
 let playerStats = [];
 $(".minsPlayed").click();
@@ -131,12 +147,12 @@ window.setTimeout(function(){
     playerStats = playerStats.map(el=>el.slice(0,-1));
     playerStats = playerStats.map(el=>el=parseFloat(el));
 
-    playerStats.push($('.tournament-link').html());     //42 - league
-    playerStats.push($('.player-picture').attr('src')); //43 - player's pic
+    playerStats.push($('.tournament-link').html());            //42 - league
+    playerStats.push($('.player-picture').attr('src'));        //43 - player's pic
     playerStats.push($('h2').html());                          //44- player's name
     playerStats.push($('.player-info-block:eq(4)').html())     //45 position
     playerStats.push($('.player-info-block:eq(3)').html())     //46 might be position as well if he has not got full name
-    playerStats.push($('.team-link').html())            //47 TEAM;
+    playerStats.push($('.team-link').html())                   //47 TEAM;
 
     window.setTimeout(()=> goBackWithData(),750)
 },40500);

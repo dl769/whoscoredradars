@@ -24,6 +24,8 @@ leagues[2] = "FC Bayern MünchenBV Borussia 09 DortmundRB LeipzigBorussia Mönch
 leagues[3] = "FC BarcelonaReal Madrid CFSevilla FCReal Sociedad de FútbolGetafe CFClub Atlético de MadridValencia CFVillarreal CFGranada CFAthletic ClubCA OsasunaReal Betis BalompiéLevante UDDeportivo AlavésReal Valladolid CFSD EibarRC Celta de VigoRCD MallorcaCD LeganésRCD Espanyol de Barcelona"
 leagues[4] = "Paris Saint-Germain FCOlympique de MarseilleStade Rennais FC 1901Lille OSCStade de ReimsOGC NiceOlympique LyonnaisMontpellier HSCAS Monaco FCAngers SCORC Strasbourg AlsaceFC Girondins de BordeauxFC NantesStade Brestois 29FC MetzDijon Football Côte d'OrAS Saint-ÉtienneNîmes OlympiqueAmiens SCToulouse FC"
 
+let possession;
+let teamsPossession;
 function checkTeamsGoals(){
     let playersTeam = playerInfo[46];
     let q,_iter=0;
@@ -40,6 +42,26 @@ function checkTeamsGoals(){
     if (league == 3) league = "PD";
     if (league == 4) league = "FL1";
     console.log(league);
+
+    //get team Possession
+
+    $.ajax({
+        dataType: "json",
+        url: "https://raw.githubusercontent.com/dl769/whoscoredradars/master/possession/"+league+".json",
+        success: function(data){
+        possession = data
+        possession = JSON.parse(possession);
+            for (e=0; e <20; e++){
+                if (possession[e][0].search(playersTeam)>=0){
+                teamsPossession = [e][1];
+                }
+            }
+        }
+    });
+    console.log(possession)
+    console.log(teamsPossession)
+    
+    
 
     $.ajax({
         headers: { 'X-Auth-Token': '225eda1009364efd8e388742b3c2a802' },
@@ -153,6 +175,12 @@ console.log(tempGames,tempConversion)
     }
     if(posistion == 'midfield'){
         let goalsandassists = playerInfo[1]+playerInfo[2]
+
+        let temp2 = 1 + (Math.pow(Math.E, (-0.1*teamsPossession- 50)));
+        let adjustTackle = playerInfo[6]/temp2;
+        let adjustInt = playerInfo[7]/temp2;
+        let adjustDrbPast = playerInfo[10]/temp2;
+
         $('#stat0').val(playerInfo[4])                    //PASSING% OK
         $('#stat1').val(playerInfo[11])                   //KEYP OK
         $('#stat2').val(playerInfo[20])                   //THROUGHBALLS OK
@@ -161,18 +189,24 @@ console.log(tempGames,tempConversion)
         $('#stat5').val(playerInfo[15])                   //DISPOSS OK
         $('#stat6').val(playerInfo[25])                   //FOULS OK
         $('#stat7').val(playerInfo[10])                   //DRBLPAST OK
-        $('#stat8').val(playerInfo[6])                    //TACKL OK_TOBEADJ
-        $('#stat9').val(playerInfo[7])                    //INT OK_TOBEADJ
+        $('#stat8').val(adjustTackle*2)                   //TACKL OK_TOBEADJ
+        $('#stat9').val(adjustInt*2)                      //INT OK_TOBEADJ
         $('#stat10').val(playerInfo[4])                   //LONGBALLS OK
     }
     if(posistion == 'centreback'){
         let blocks = playerInfo[27] + playerInfo[28] + playerInfo[29];
         let lb = playerInfo[19] + playerInfo[39];
         lb = playerInfo[19]/lb;
+
+        let temp2 = 1 + (Math.pow(Math.E, (-0.1*teamsPossession- 50)));
+        let adjustTackle = playerInfo[6]/temp2;
+        let adjustInt = playerInfo[7]/temp2;
+        let adjustDrbPast = playerInfo[10]/temp2;
+
         $('#stat0').val(playerInfo[4])                    //PASSING% OK
-        $('#stat1').val(playerInfo[10])                   //DRBLPAST OK_TOBEADJ
-        $('#stat2').val(playerInfo[6])                    //TACKL OK_TOBEADJ
-        $('#stat3').val(playerInfo[7])                    //INT OK_TOBEADJ
+        $('#stat1').val(adjustDrbPast*2)                  //DRBLPAST OK_TOBEADJ
+        $('#stat2').val(adjustTackle*2)                   //TACKL OK_TOBEADJ
+        $('#stat3').val(adjustInt*2)                      //INT OK_TOBEADJ
         $('#stat4').val(blocks)                           //BLOCKS OK
         $('#stat5').val(playerInfo[26])                   //CLEARANCES OK
         $('#stat6').val(playerInfo[8])                    //FOULS OK
@@ -185,12 +219,17 @@ console.log(tempGames,tempConversion)
         let blocks = playerInfo[27] + playerInfo[28] + playerInfo[29];
         let cross = playerInfo[18] + playerInfo[40];
         cross = playerInfo[18]/cross;
-        $('#stat0').val(playerInfo[6])                    //TACKL OK_TOBEADJ
-        $('#stat1').val(playerInfo[7])                    //INT OK_TOBEADJ
+
+        let temp2 = 1 + (Math.pow(Math.E, (-0.1*teamsPossession- 50)));
+        let adjustTackle = playerInfo[6]/temp2;
+        let adjustInt = playerInfo[7]/temp2;
+
+        $('#stat0').val(adjustTackle*2)                   //TACKL OK_TOBEADJ
+        $('#stat1').val(adjustInt*2)                      //INT OK_TOBEADJ
         $('#stat2').val(playerInfo[4])                    //PASSING% OK
         $('#stat3').val(playerInfo[11])                   //KEYP OK
         $('#stat4').val(playerInfo[18])                   //compcrosses OK
-        $('#stat5').val(cross*100)                        //CROSS% ???
+        $('#stat5').val(cross*100)                        //CROSS% OK
         $('#stat6').val(playerInfo[12])                   //SUCCDRBL OK
         $('#stat7').val(playerInfo[15])                   //DISPOSS OK
         $('#stat8').val(playerInfo[5])                    //AERIALW OK
