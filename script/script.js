@@ -53,7 +53,7 @@ function checkTeamsGoals(){
         possession = JSON.parse(possession);
             for (e=0; e <20; e++){
                 if (possession[e][0].search(playersTeam)>=0){
-                teamsPossession = [e][1];
+                teamsPossession = possession[e][1];
                 }
             }
         }
