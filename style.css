@@ -76,3 +76,12 @@ body{
 .fa-futbol{
     color: black;
 }
+#selector{
+    float: right;
+    border: 2px solid green;
+    width: 110px;
+      margin-right: 40px;
+  }
+#selector:hover{
+    cursor: pointer;
+}

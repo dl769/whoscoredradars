@@ -7,12 +7,9 @@ $(document).ready(function() {
 
 window.setTimeout(() => getDataLoc(),300);
 window.setTimeout(() => checkTeamsGoals(),760)
-window.setTimeout(() => drawPlot(),1500)
+window.setTimeout(() => putValues(),1200)
+window.setTimeout(() => drawPlot(),1600)
 //window.setTimeout(() => additional(),2000);
-window.setTimeout(()=> {
-    console.log(teamBadge)
-$('body').append(`<img src="${teamBadge}">`)
-},3500)
 });
 
 
@@ -54,13 +51,11 @@ function checkTeamsGoals(){
             for (e=0; e <20; e++){
                 if (possession[e][0].search(playersTeam)>=0){
                 teamsPossession = possession[e][1];
+                teamsPossession = parseFloat(teamsPossession);
                 }
             }
         }
-    });
-    console.log(possession)
-    console.log(teamsPossession)
-    
+    }); 
     
 
     $.ajax({
@@ -104,24 +99,30 @@ function getDataLoc(){
             v = JSON.parse(v)
             
             playerInfo = [...v]
-            playerInfo[44] = playerInfo[44]+playerInfo[45];//position might be in one of those
-            console.log(playerInfo)
-            if(playerInfo[44].search("Midfielder")>0 && playerInfo[44].search("Forward")<0){
-                posistion = 'midfield'
+        console.log('d',posistion,playerInfo[47]);
+            if(playerInfo[47] == undefined){
+                //autodetecting
+                playerInfo[44] = playerInfo[44]+playerInfo[45];//position might be in one of those
+                console.log(playerInfo)
+                if(playerInfo[44].search("Midfielder")>0 && playerInfo[44].search("Forward")<0){
+                    posistion = 'midfield'
+                }
+                if(playerInfo[44].search("Defensive Midfielder")>0){
+                    posistion = 'midfield'
+                }
+                if(playerInfo[44].search("Attacking Midfielder")>0 || playerInfo[44].search("Forward")>0){
+                    posistion = 'attack'
+                }
+                if(playerInfo[44].search("Defender \\(Left\\)")>0 || playerInfo[44].search("Defender \\(Right\\)")>0){
+                    posistion = 'fullback'
+                }
+                if(playerInfo[44].search("Defender \\(Centre")>0){
+                    posistion = 'centreback'
+                }
+            }else{
+                posistion=playerInfo[47]
             }
-            if(playerInfo[44].search("Defensive Midfielder")>0){
-                posistion = 'midfield'
-            }
-            if(playerInfo[44].search("Attacking Midfielder")>0 || playerInfo[44].search("Forward")>0){
-                posistion = 'attack'
-            }
-            if(playerInfo[44].search("Defender \\(Left\\)")>0 || playerInfo[44].search("Defender \\(Right\\)")>0){
-                posistion = 'fullback'
-            }
-            if(playerInfo[44].search("Defender \\(Centre\\)")>0){
-                posistion = 'centreback'
-            }
-
+            console.log('d',posistion,playerInfo[47]);
             let positionText;
             if(posistion == 'attack') {
                 fillFWAM()
@@ -142,7 +143,6 @@ function getDataLoc(){
             
             
             console.log(posistion)
-            putValues()
 
             const tempLg = playerInfo[41].lastIndexOf('>');
             playerInfo[41].slice(tempLg)
@@ -176,7 +176,7 @@ console.log(tempGames,tempConversion)
     if(posistion == 'midfield'){
         let goalsandassists = playerInfo[1]+playerInfo[2]
 
-        let temp2 = 1 + (Math.pow(Math.E, (-0.1*teamsPossession- 50)));
+        let temp2 = 1 + (Math.pow(Math.E, (-0.1*(teamsPossession - 50))));
         let adjustTackle = playerInfo[6]/temp2;
         let adjustInt = playerInfo[7]/temp2;
         let adjustDrbPast = playerInfo[10]/temp2;
@@ -198,17 +198,19 @@ console.log(tempGames,tempConversion)
         let lb = playerInfo[19] + playerInfo[39];
         lb = playerInfo[19]/lb;
 
-        let temp2 = 1 + (Math.pow(Math.E, (-0.1*teamsPossession- 50)));
+        let temp2 = 1 + (Math.pow(Math.E, (-0.1*(teamsPossession - 50))));
         let adjustTackle = playerInfo[6]/temp2;
         let adjustInt = playerInfo[7]/temp2;
         let adjustDrbPast = playerInfo[10]/temp2;
+        let adjClr = playerInfo[26]/temp2;
+        console.log(adjustTackle,adjustInt,adjustDrbPast,temp2,adjClr);
 
         $('#stat0').val(playerInfo[4])                    //PASSING% OK
         $('#stat1').val(adjustDrbPast*2)                  //DRBLPAST OK_TOBEADJ
         $('#stat2').val(adjustTackle*2)                   //TACKL OK_TOBEADJ
         $('#stat3').val(adjustInt*2)                      //INT OK_TOBEADJ
         $('#stat4').val(blocks)                           //BLOCKS OK
-        $('#stat5').val(playerInfo[26])                   //CLEARANCES OK
+        $('#stat5').val(adjClr*2)                   //CLEARANCES OK
         $('#stat6').val(playerInfo[8])                    //FOULS OK
         $('#stat7').val(playerInfo[5]/playerInfo[38]*100) //AERIALW% ??
         $('#stat8').val(playerInfo[5])                    //AERIALW OK
@@ -220,10 +222,10 @@ console.log(tempGames,tempConversion)
         let cross = playerInfo[18] + playerInfo[40];
         cross = playerInfo[18]/cross;
 
-        let temp2 = 1 + (Math.pow(Math.E, (-0.1*teamsPossession- 50)));
+        let temp2 = 1 + (Math.pow(Math.E, (-0.1*(teamsPossession - 50))));
         let adjustTackle = playerInfo[6]/temp2;
         let adjustInt = playerInfo[7]/temp2;
-
+        
         $('#stat0').val(adjustTackle*2)                   //TACKL OK_TOBEADJ
         $('#stat1').val(adjustInt*2)                      //INT OK_TOBEADJ
         $('#stat2').val(playerInfo[4])                    //PASSING% OK
@@ -239,3 +241,16 @@ console.log(tempGames,tempConversion)
 
 }
 
+function changeTemplate(){
+    posistion = $('#selector option:selected').val()
+    console.log(posistion);
+    if(playerInfo[47] == undefined){
+        playerInfo.push(posistion);
+    }else{
+        playerInfo[47] = posistion;
+    }
+
+    playerInfo = JSON.stringify(playerInfo);
+    playerInfo = btoa(playerInfo);
+    window.location.href = "http://dl769.github.io/whoscoredradars/?"+playerInfo; 
+}
