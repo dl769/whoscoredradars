@@ -6,10 +6,9 @@ $(document).ready(function() {
 
 
 window.setTimeout(() => getDataLoc(),300);
-window.setTimeout(() => checkTeamsGoals(),760)
-window.setTimeout(() => putValues(),1200)
-window.setTimeout(() => drawPlot(),1600)
-//window.setTimeout(() => additional(),2000);
+window.setTimeout(() => checkTeamsGoals(),800)
+window.setTimeout(() => putValues(),1300)
+window.setTimeout(() => drawPlot(),1800)
 });
 
 
